@@ -17,7 +17,7 @@ The timer logic is written in Swift and Kotlin. The timer has a simple function 
 ✅ How to create [simple functions](#Implement-simple-function)  
 ✅ How to create [functions with return values](#Implement-function-with-return-value)  
 ✅ How to create [async functions with class parameters and return class values](#Implement-async-function-with-class-parameters-and-return-class-value)  
-✅ How to [receive values from the native side and convert them into a stream](#Receiving-values-from-native-side-and-convert-them-into-a-stream)
+✅ How to [receive values from the native side and convert them into a stream](#Receiving-Values-from-Native-Side-and-Converting-Them-into-a-Stream)
 
 # Examples
 
