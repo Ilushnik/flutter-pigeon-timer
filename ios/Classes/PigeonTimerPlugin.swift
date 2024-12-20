@@ -14,18 +14,6 @@ public class PigeonTimerPlugin: NSObject, FlutterPlugin, TimerHostApi {
         registrar.addApplicationDelegate(api)
     }
     
-    var navigationController: UINavigationController!
-    
-    public func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [AnyHashable : Any] = [:]) -> Bool {
-        let controller = application.delegate?.window??.rootViewController as! FlutterViewController
-
-        self.navigationController = UINavigationController(rootViewController: controller)
-        application.delegate?.window??.rootViewController = self.navigationController
-        self.navigationController.setNavigationBarHidden(true, animated: false)
-        application.delegate?.window??.makeKeyAndVisible()
-
-        return true
-      }
     
     func initTimer() throws {
         stopwatch = StopwatchTimer()

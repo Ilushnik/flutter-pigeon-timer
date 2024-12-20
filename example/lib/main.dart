@@ -27,11 +27,26 @@ class _MyAppState extends State<MyApp> {
     initPlugin();
   }
 
+  Future<void> initPlugin() async {
+    var result = await timerApi.getPlatformVersion();
+    timerApi.onTick().listen(onTick);
+    timerApi.onTickComplex().listen(onTickComplex);
+    setState(() {
+      platformVersion = result ?? 'Unknown';
+      counter = '-';
+    });
+  }
+
   void onTick(int value) {
     debugPrint(value.toString());
     setState(() {
       counter = 'Counter is: ${value.toString()}';
     });
+  }
+
+  void onTickComplex(ComplexValue complexObject) {
+    debugPrint(
+        'Value from complex object is ${complexObject.value}. Platform is: ${complexObject.platformName}');
   }
 
   Future askQuestion() async {
@@ -43,21 +58,6 @@ class _MyAppState extends State<MyApp> {
     setState(() {
       answerText = answer.text;
     });
-  }
-
-  Future<void> initPlugin() async {
-    var result = await timerApi.getPlatformVersion();
-    timerApi.onTick().listen(onTick);
-    timerApi.onTickComplex().listen(onTickComplex);
-    setState(() {
-      platformVersion = result ?? 'Unknown';
-      counter = '-';
-    });
-  }
-
-  void onTickComplex(ComplexValue complexObject) {
-    debugPrint(
-        'Value from complex object is ${complexObject.value}. Platform is: ${complexObject.platformName}');
   }
 
   @override
@@ -72,7 +72,7 @@ class _MyAppState extends State<MyApp> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Text('Timer from native side', style: Theme.of(context).textTheme.titleLarge,),
+              Text('Native timer', style: Theme.of(context).textTheme.titleLarge,),
               Text(counter, style: Theme.of(context).textTheme.titleLarge),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
