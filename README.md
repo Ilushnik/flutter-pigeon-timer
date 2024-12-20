@@ -414,8 +414,6 @@ public class PigeonTimerPlugin: NSObject, FlutterPlugin, TimerHostApi {
 ```
 
 
-<p style="text-align: center;">
+### I've also made a short YouTube video.
 
 [![The youtube video](https://img.youtube.com/vi/AOU6dijlQTs/mqdefault.jpg)](https://www.youtube.com/watch?v=AOU6dijlQTs)
-
-</p>
